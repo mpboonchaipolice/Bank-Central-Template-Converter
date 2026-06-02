@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bank Central Template Converter</title>
+  <meta name="description" content="แปลง Statement ธนาคารหลายรูปแบบเป็น Template กลาง เพื่อวิเคราะห์เส้นทางการเงิน"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230f1623'/><text x='5' y='24' font-size='22'>🏦</text></svg>"/>
+  <link rel="stylesheet" href="styles.css"/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div id="root">
+    <!-- Loading screen shown before React mounts -->
+    <div style="display:flex;align-items:center;justify-content:center;height:100vh;
+                background:#080d18;color:#7a92b4;font-family:sans-serif;flex-direction:column;gap:16px;">
+      <div style="font-size:40px;">🏦</div>
+      <div style="font-size:14px;font-weight:600;color:#e2eaf8;">Bank Central Template Converter</div>
+      <div style="font-size:12px;">Loading…</div>
+    </div>
+  </div>
+
+  <!-- ── External Libraries ────────────────────────────────── -->
+  <!-- SheetJS: read/write XLSX -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <!-- PapaParse: read/write CSV -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+  <!-- ── React + Babel ─────────────────────────────────────── -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"
+    integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"
+    integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"
+    integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y"
+    crossorigin="anonymous"></script>
+
+  <!-- ── Vanilla JS Modules (load order matters) ───────────── -->
+  <script src="js/storage.js"></script>
+  <script src="js/normalizer.js"></script>
+  <script src="js/templateRegistry.js"></script>
+  <script src="js/parser.js"></script>
+  <script src="js/mapper.js"></script>
+  <script src="js/converter.js"></script>
+  <script src="js/dedupe.js"></script>
+  <script src="js/exporter.js"></script>
+
+  <!-- ── React Components (Babel transpiled) ───────────────── -->
+  <script type="text/babel" src="components/Layout.jsx"></script>
+  <script type="text/babel" src="components/Pages.jsx"></script>
+  <script type="text/babel" src="components/MapperPage.jsx"></script>
+  <script type="text/babel" src="components/Transactions.jsx"></script>
+
+  <!-- ── Main App ──────────────────────────────────────────── -->
+  <script type="text/babel" src="app.js"></script>
+</body>
+</html>
